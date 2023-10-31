@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: astolfo-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: astolfo
+  template:
+    metadata:
+      labels:
+        app: astolfo
+    spec:
+      containers:
+        - name: astolfo
+          image: astolfo:1.0
+          ports:
+            - containerPort: 80
